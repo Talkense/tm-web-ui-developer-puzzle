@@ -3,7 +3,7 @@ import {
   booksAdapter,
   initialState as booksInitialState
 } from './books.reducer';
-import * as ToReadSelectors from './reading-list.selectors';
+import { getReadingList, getTotalUnread } from './reading-list.selectors';
 import { createBook, createReadingListItem } from '@tmo/shared/testing';
 
 describe('ReadingList Selectors', () => {
@@ -36,14 +36,14 @@ describe('ReadingList Selectors', () => {
 
   describe('Books Selectors', () => {
     it('getReadingList() should return the list of Books', () => {
-      const results = ToReadSelectors.getReadingList(state);
+      const results = getReadingList(state);
 
       expect(results.length).toBe(3);
       expect(results.map(x => x.bookId)).toEqual(['A', 'B', 'C']);
     });
 
     it("getTotalUnread() should return the current 'loaded' status", () => {
-      const result = ToReadSelectors.getTotalUnread(state);
+      const result = getTotalUnread(state);
 
       expect(result).toBe(3);
     });

@@ -70,3 +70,9 @@ form {
   font-size: 1.5rem;
   color: $gray40;
 }
+
+.want-to-read-button:focus {
+  background: yellow;
+  color: red;
+  border: 2px solid #000000;
+}

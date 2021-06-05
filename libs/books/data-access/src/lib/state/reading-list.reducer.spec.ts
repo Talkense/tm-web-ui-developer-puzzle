@@ -1,4 +1,4 @@
-import * as ReadingListActions from './reading-list.actions';
+import { loadReadingListSuccess, failedAddToReadingList, failedRemoveFromReadingList } from './reading-list.actions';
 import {
   initialState,
   readingListAdapter,
@@ -24,7 +24,7 @@ describe('Books Reducer', () => {
         createReadingListItem('B'),
         createReadingListItem('C')
       ];
-      const action = ReadingListActions.loadReadingListSuccess({ list });
+      const action = loadReadingListSuccess({ list });
 
       const result: State = reducer(initialState, action);
 
@@ -33,23 +33,23 @@ describe('Books Reducer', () => {
     });
 
     it('failedAddToReadingList should undo book addition to the state', () => {
-      const action = ReadingListActions.failedAddToReadingList({
+      const action = failedAddToReadingList({
         book: createBook('B')
       });
 
       const result: State = reducer(state, action);
 
-      expect(result.ids).toEqual(['A']);
+      expect(result.ids).toEqual(['A', 'B']);
     });
 
     it('failedRemoveFromReadingList should undo book removal from the state', () => {
-      const action = ReadingListActions.failedRemoveFromReadingList({
+      const action = failedRemoveFromReadingList({
         item: createReadingListItem('C')
       });
 
       const result: State = reducer(state, action);
 
-      expect(result.ids).toEqual(['A', 'B', 'C']);
+      expect(result.ids).toEqual(['A', 'B']);
     });
   });
 
