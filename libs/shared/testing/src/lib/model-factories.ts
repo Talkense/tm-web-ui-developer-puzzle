@@ -11,12 +11,12 @@ export function createBook(id: string): Book {
   };
 }
 
-export function createReadingListItem(bookId: string): ReadingListItem {
+export function createReadingListItem(id: string): ReadingListItem {
   return {
-    bookId,
-    title: `Book ${bookId}`,
+    id,
+    title: `Book ${id}`,
     description: '',
-    authors: [`Author ${bookId}`],
+    authors: [`Author ${id}`],
     coverUrl: '',
     publishedDate: new Date(2020, 0, 1).toISOString()
   };

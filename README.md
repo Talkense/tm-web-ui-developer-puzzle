@@ -114,7 +114,7 @@ aaaaaaa initial commit
 
 **Requirements**
 
-> As a user, I want to be able to quickly undo my action when clicking the `Want to Read` button in the book list, or the remove button in the reading list.
+> As a user, I want to be able to quickly undo my action when clicking the `Add to List` button in the book list, or the remove button in the reading list.
 
 1. Starting from the `chore/code-review` branch from Task 1, create a new branch `feat/undo-actions`.
 2. Update the code such that a [snackbar](https://material.angular.io/components/snack-bar/overview) appears whenever the user adds or removes a book. (Hint: this module is already installed and set up)
@@ -137,7 +137,7 @@ aaaaaaa initial commit
 3. Update the UI to allow user to mark a book as _finished_ from the reading list sidenav. (Bonus points for a thoughtful UI/UX design for this feature)
    - Indicate the book as finished in the sidenav, including the finished date.
    - The user can still remove the book from their reading list. Removing a book will reset the finished status (i.e. if they add the book back it will not be finished).
-   - The `Want to Read` button should change to `Finished`.
+   - The `Add to List` button should change to `Finished`.
 4. Write a new e2e test in `apps/okreads-e2e/src/specs/reading-list.spec.ts` to test the new mark as finished feature.
 5. Commit your changes on the feature branch and open a pull-request with `chore/code-review` as the target.
 

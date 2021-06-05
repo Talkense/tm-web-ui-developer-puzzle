@@ -42,7 +42,7 @@ export class ReadingListEffects implements OnInitEffects {
     this.actions$.pipe(
       ofType(removeFromReadingList),
       concatMap(({ item }) =>
-        this.http.delete(`/api/reading-list/${item.bookId}`).pipe(
+        this.http.delete(`/api/reading-list/${item.id}`).pipe(
           map(() =>
             confirmedRemoveFromReadingList({ item })
           ),
