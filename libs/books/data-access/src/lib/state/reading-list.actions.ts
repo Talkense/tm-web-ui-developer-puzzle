@@ -13,17 +13,17 @@ export const loadReadingListError = createAction(
 );
 
 export const addToReadingList = createAction(
-  '[Books Search Results] Add to list',
+  '[Books Search Results] Want to Read',
   props<{ book: Book }>()
 );
 
 export const failedAddToReadingList = createAction(
-  '[Reading List API] Failed add to list',
+  '[Reading List API] Failed Want to Read',
   props<{ book: Book }>()
 );
 
 export const confirmedAddToReadingList = createAction(
-  '[Reading List API] Confirmed add to list',
+  '[Reading List API] Confirmed Want to Read',
   props<{ book: Book }>()
 );
 
