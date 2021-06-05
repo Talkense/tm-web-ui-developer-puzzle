@@ -11,7 +11,8 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { TotalCountComponent } from './total-count/total-count.component';
 import { ReadingListComponent } from './reading-list/reading-list.component';
-import { MatTooltipModule } from '@angular/material/tooltip'
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 
 const EXPORTS = [
@@ -34,7 +35,8 @@ const EXPORTS = [
       { path: '', pathMatch: 'full', component: BookSearchComponent }
     ]),
     BooksDataAccessModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatCheckboxModule
   ],
   exports: [...EXPORTS],
   declarations: [...EXPORTS]

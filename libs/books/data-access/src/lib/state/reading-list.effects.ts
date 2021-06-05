@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Actions, createEffect, ofType, OnInitEffects } from '@ngrx/effects';
+import { fetch, optimisticUpdate } from '@nrwl/angular';
 import { of } from 'rxjs';
-import { catchError, concatMap, exhaustMap, map } from 'rxjs/operators';
+import { catchError, concatMap, exhaustMap, map,  } from 'rxjs/operators';
 import { ReadingListItem } from '@tmo/shared/models';
-import { init, loadReadingListSuccess, loadReadingListError, addToReadingList, confirmedAddToReadingList, failedAddToReadingList, removeFromReadingList, confirmedRemoveFromReadingList, failedRemoveFromReadingList} from './reading-list.actions';
-
+import { confirmedUnmarkedAsFinished, failedtoUnmarkFinished, unmarkFinished, failedtoMarkFinished, confirmedMarkedAsFinished, markFinished, init, loadReadingListSuccess, loadReadingListError, addToReadingList, confirmedAddToReadingList, failedAddToReadingList, removeFromReadingList, confirmedRemoveFromReadingList, failedRemoveFromReadingList} from './reading-list.actions';
 @Injectable()
 export class ReadingListEffects implements OnInitEffects {
   loadReadingList$ = createEffect(() =>
@@ -51,6 +51,50 @@ export class ReadingListEffects implements OnInitEffects {
           )
         )
       )
+    )
+  );
+
+  markFinishedBook$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(markFinished),
+      optimisticUpdate({
+        run: ({ item }) => {
+          return this.http.put(`/api/reading-list/${item.bookId}/finished`, item).pipe(
+            map(() =>
+              confirmedMarkedAsFinished({
+                item
+              })
+            )
+          );
+        },
+        undoAction: ({ item }) => {
+          return failedtoMarkFinished({
+            item
+          });
+        }
+      })
+    )
+  );
+
+  unmarkFinishedBook$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(unmarkFinished),
+      optimisticUpdate({
+        run: ({ item }) => {
+          return this.http.delete(`/api/reading-list/${item.bookId}/finished`).pipe(
+            map(() =>
+              confirmedUnmarkedAsFinished({
+                item
+              })
+            )
+          );
+        },
+        undoAction: ({ item }) => {
+          return failedtoUnmarkFinished({
+            item
+          });
+        }
+      })
     )
   );
 
