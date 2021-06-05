@@ -45,3 +45,11 @@
   font-size: 1rem;
   color: $gray60;
 }
+
+.mat-icon-button{
+  align-self: flex-end;
+}
+
+mat-checkbox{
+  padding-right: 12px;
+} 
