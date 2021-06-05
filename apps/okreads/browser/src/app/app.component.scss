@@ -14,7 +14,7 @@ h1 {
   position: sticky;
   top: 0;
   z-index: 100;
-  background-color: $pink-accent;
+  background-color: $pink-very-dark;
   color: $white;
   padding: $spacing-3xs $spacing-xs;
 
@@ -64,4 +64,8 @@ main {
 
 .reading-list-content {
   padding: $spacing-xxs;
+}
+
+button[data-testing='toggle-reading-list']:focus {
+  border: 2px solid #000000;
 }

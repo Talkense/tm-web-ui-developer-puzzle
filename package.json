@@ -2,6 +2,7 @@
   "name": "tmo",
   "version": "0.0.0",
   "license": "MIT",
+  "main": "tslint.json",
   "scripts": {
     "ng": "nx",
     "nx": "nx",
@@ -65,6 +66,7 @@
     "@ngrx/schematics": "9.1.0",
     "@ngrx/store-devtools": "9.1.0",
     "@nrwl/cypress": "10.0.12",
+    "@nrwl/eslint-plugin-nx": "10.0.12",
     "@nrwl/jest": "10.0.12",
     "@nrwl/nest": "10.0.12",
     "@nrwl/node": "10.0.12",
@@ -81,6 +83,9 @@
     "cypress": "^6.0.1",
     "dotenv": "6.2.0",
     "eslint": "6.8.0",
+    "eslint-config-prettier": "6.0.0",
+    "eslint-plugin-cypress": "^2.10.3",
+    "eslint-plugin-sonarjs": "0.5.0",
     "jest": "25.2.3",
     "jest-preset-angular": "8.1.2",
     "mocha": "^7.1.2",
@@ -91,12 +96,7 @@
     "sinon-chai": "^3.5.0",
     "ts-jest": "25.4.0",
     "ts-node": "~7.0.0",
-    "tslint": "~6.1.0",
-    "typescript": "~3.9.7",
-    "eslint-plugin-cypress": "^2.10.3",
-    "@nrwl/eslint-plugin-nx": "10.0.12",
-    "@typescript-eslint/parser": "2.19.2",
-    "@typescript-eslint/eslint-plugin": "2.19.2",
-    "eslint-config-prettier": "6.0.0"
+    "tslint": "^6.0.0",
+    "typescript": "~3.9.7"
   }
 }
